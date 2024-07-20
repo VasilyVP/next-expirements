@@ -2,8 +2,8 @@ import { Box } from '@mui/material'
 
 export default function Some() {
   return (
-    <Box>
+    <div>
       Page 3
-    </Box>
+    </div>
   )
 }

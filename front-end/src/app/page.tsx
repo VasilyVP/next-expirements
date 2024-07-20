@@ -1,9 +1,14 @@
 import { Box, Stack } from '@mui/material';
 import Login from '@/components/Login';
+//import Shared from '@packages/components/Shared'; // direct import
+//import { Shared } from '@ntp/packages/components';
+//import { User } from '@ntp/types/User'; // direct import
+//import { User } from '@ntp/types';
+import MoreShared from '@/components/MoreShared';
+import ServerComponent from '@/components/ServerComponent';
 
-export default /* async */ function Home() {
-  //await new Promise(resolve => setTimeout(() => resolve('ok'), 500));
 
+export default async function Home() {
   return (
     <Box
       height='100vh'
@@ -17,6 +22,10 @@ export default /* async */ function Home() {
           Landing page
         </Box>
         <Box><Login /></Box>
+        <Box>
+          <MoreShared />
+        </Box>
+        <ServerComponent />
       </Stack>
     </Box>
   )

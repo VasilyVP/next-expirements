@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "declaration": true,
+        "strict": true,
+        "incremental": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./build",
+        "jsx": "preserve",
+        "paths": {
+            "@ntp/types": [
+                "./types/src/index.ts"
+            ],
+            "@ntp/types/*": [
+                "./types/src/*"
+            ],
+            "@ntp/packages/*": [
+                "./packages/*"
+            ],
+            "@ntp/packages/components": [
+                "./packages/components/index.ts"
+            ],
+            "@ntp/packages/components/*": [
+                "./packages/components/*"
+            ],
+        },
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./types/**/*",
+        "./packages/**/*",
+    ],
+}
