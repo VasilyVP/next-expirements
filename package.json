@@ -13,8 +13,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
