@@ -14,7 +14,6 @@
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.20",
-    "@next-trpc-prisma/packages": "^1.0.0",
     "@reduxjs/toolkit": "^1.9.7",
     "next": "^14.2.4",
     "react": "^18",
