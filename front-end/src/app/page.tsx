@@ -1,6 +1,6 @@
 import { Box, Stack } from '@mui/material';
 import Login from '@/components/Login';
-//import Shared from '@packages/components/Shared'; // direct import
+import Shared from '@ntp/packages/components/Shared'; // direct import
 //import { Shared } from '@ntp/packages/components';
 //import { User } from '@ntp/types/User'; // direct import
 //import { User } from '@ntp/types';
@@ -24,6 +24,9 @@ export default async function Home() {
         <Box><Login /></Box>
         <Box>
           <MoreShared />
+        </Box>
+        <Box>
+          <Shared />
         </Box>
         <ServerComponent />
       </Stack>

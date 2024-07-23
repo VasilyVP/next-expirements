@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 
 
-export default function Shared({ env }: { env: string }) {
+export default function Shared() {
     return (
         <Box>
-            Shared component {env}
+            Shared component
         </Box>
     )
 }
