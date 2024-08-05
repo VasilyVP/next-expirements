@@ -17,7 +17,12 @@ const url = process.env.VERCEL_URL
 // Server rendering client
 export const trpcSsr = createTRPCClient<AppRouter>({
   links: [
-    httpBatchLink({ url }),
+    httpBatchLink({
+      url: (() => {
+        console.log("url: ", url);
+        return url;
+      })()
+    }),
   ],
 });
 
