@@ -1,11 +1,11 @@
 import { Box, Stack } from '@mui/material';
 import Login from '@/components/Login';
 import Shared from '@ntp/packages/components/Shared'; // direct import
-//import { Shared } from '@ntp/packages/components';
 //import { User } from '@ntp/types/User'; // direct import
 //import { User } from '@ntp/types';
 import MoreShared from '@/components/MoreShared';
 import ServerComponent from '@/components/ServerComponent';
+import ClientComponent from '@/components/ClientComponent';
 
 
 export default async function Home() {
@@ -29,6 +29,7 @@ export default async function Home() {
           <Shared />
         </Box>
         <ServerComponent />
+        <ClientComponent />
       </Stack>
     </Box>
   )

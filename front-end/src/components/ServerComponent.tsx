@@ -1,6 +1,7 @@
+import { trpcSsr } from "@/trpc/client";
 
 export default async function ServerComponent() {
-    const res = await new Promise(resolve => setTimeout(() => resolve('ok'), 500));
+    const res = await trpcSsr.userList.query();
 
-    return 'Hello'
+    return 'Server component: ' + res[0].email;
 }

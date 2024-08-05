@@ -15,7 +15,7 @@ export default function MoreShared() {
 
     return (
         <Box>
-            Expect: {expect}
+            Action response: {expect}
         </Box>
     )
 }

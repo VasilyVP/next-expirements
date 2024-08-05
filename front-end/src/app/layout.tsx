@@ -1,5 +1,7 @@
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import StoreProvider from "@/store/StoreProvider";
+import TrpcProvider from "@/trpc/TrpcProvider";
+
 
 export const metadata = {
   title: 'Test app',
@@ -16,7 +18,9 @@ export default async function RootLayout({
       <body>
         <StoreProvider>
           <ThemeRegistry>
-            {children}
+            <TrpcProvider>
+              {children}
+            </TrpcProvider>
           </ThemeRegistry>
         </StoreProvider>
       </body>

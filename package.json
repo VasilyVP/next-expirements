@@ -4,8 +4,7 @@
   "description": "Next.js + tRPC + Prisma monorepo",
   "workspaces": [
     "packages",
-    "front-end",
-    "back-end"
+    "front-end"
   ],
   "private": false,
   "scripts": {
