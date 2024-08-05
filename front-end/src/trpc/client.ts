@@ -10,8 +10,8 @@ console.log('VERCEL_ENV: ', process.env.VERCEL_ENV);
 console.log('VERCEL_URL: ', process.env.VERCEL_URL);
 console.log('VERCEL_PROJECT_PRODUCTION_URL: ', process.env.VERCEL_PROJECT_PRODUCTION_URL);
 
-const url = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}/api/trpc`
+const url = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
   : config.trpcServerUrl;
 
 // Server rendering client
