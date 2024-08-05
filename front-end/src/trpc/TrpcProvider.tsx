@@ -9,7 +9,7 @@ import { trpcClc } from "@/trpc/client";
 const trpcClient = trpcClc.createClient({
     links: [
         httpBatchLink({
-            url: config.trpcServerUrl,
+            url: '/api/trpc', //config.trpcServerUrl,
         }),
     ],
 });
