@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-import { config } from '@/config';
+//import { config } from '@/config';
 import { trpcClc } from "@/trpc/client";
 
 
