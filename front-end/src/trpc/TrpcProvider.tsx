@@ -9,7 +9,7 @@ import { trpcClc } from "@/trpc/client";
 const trpcClient = trpcClc.createClient({
     links: [
         httpBatchLink({
-            url: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
+            url: `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}/api/trpc`
             //'/api/trpc', //config.trpcServerUrl,
         }),
     ],
