@@ -4,25 +4,16 @@ import type { AppRouter } from './server';
 import { config } from '@/config';
 
 
-console.log('NEXT_PUBLIC_VERCEL_ENV: ', process.env.NEXT_PUBLIC_VERCEL_ENV);
-console.log('NEXT_PUBLIC_VERCEL_URL: ', process.env.NEXT_PUBLIC_VERCEL_URL);
-console.log('VERCEL_ENV: ', process.env.VERCEL_ENV);
-console.log('VERCEL_URL: ', process.env.VERCEL_URL);
-console.log('VERCEL_PROJECT_PRODUCTION_URL: ', process.env.VERCEL_PROJECT_PRODUCTION_URL);
-
 const url = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}/api/trpc`
-  : config.trpcServerUrl;
+  : config.trpcServerLocal;
+
+if (!url) throw Error('tRPC URL is not defined');
 
 // Server rendering client
 export const trpcSsr = createTRPCClient<AppRouter>({
   links: [
-    httpBatchLink({
-      url: (() => {
-        console.log("url: ", url);
-        return url;
-      })()
-    }),
+    httpBatchLink({ url }),
   ],
 });
 
