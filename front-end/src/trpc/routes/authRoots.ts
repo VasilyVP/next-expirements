@@ -13,7 +13,7 @@ export const authProcedure = trpc.procedure.use(async ({ ctx, next }) => {
     })
 });
 
-export const authRoutes = trpc.router({
+export const authRoutes = {
     me: authProcedure
         .output(z.object({
             email: z.string().email().max(20),
@@ -22,4 +22,4 @@ export const authRoutes = trpc.router({
 
             return user;
         }),
-});
+};
