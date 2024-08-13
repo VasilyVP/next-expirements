@@ -1,10 +1,12 @@
 import { randomUUID } from 'crypto';
 import { z } from 'zod';
-import { Users } from './data';
-import { procedure } from './init';
+import { Users } from '../data';
+import { trpc } from '../init';
 
 
-export const routes = {
+const procedure = trpc.procedure;
+
+export const publicRoutes = {
     userList: procedure
         .query(async () => {
             return Users;

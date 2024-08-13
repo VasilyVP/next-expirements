@@ -9,7 +9,7 @@ export default function MoreShared() {
     const [expect, setExpect] = useState('');
 
     useEffect(() => {
-        sayHello()
+        sayHello({ whom: 'Vv'})
             .then(res => setExpect(res));
     });
 
