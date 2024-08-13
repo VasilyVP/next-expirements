@@ -8,6 +8,8 @@ const handler = (request: Request) => {
     const req = request as unknown as NextApiRequest;
     const res = {} as NextApiResponse;
 
+    console.log('URL: ', req.url);
+
     return fetchRequestHandler({
         endpoint: "/api/trpc",
         req: request,
