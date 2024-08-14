@@ -1,13 +1,21 @@
-import { appRouter } from "@/trpc/server";
+import { appRouter } from "@/trpc/appRouter";
+import { createContext } from "@/trpc/context";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
+import { NextApiRequest, NextApiResponse } from "@trpc/server/adapters/next";
 
 
-const handler = (req: Request) =>
-    fetchRequestHandler({
+const handler = (request: Request) => {
+    const req = request as unknown as NextApiRequest;
+    const res = {} as NextApiResponse;
+
+    console.log('URL: ', req.url);
+
+    return fetchRequestHandler({
         endpoint: "/api/trpc",
-        req,
+        req: request,
         router: appRouter,
-        createContext: () => ({}),
+        createContext: () => createContext({ req, res }),
     });
+}
 
 export { handler as GET, handler as POST };

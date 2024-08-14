@@ -2,15 +2,13 @@
 import { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-//import { config } from '@/config';
 import { trpcClc } from "@/trpc/client";
 
 
 const trpcClient = trpcClc.createClient({
     links: [
         httpBatchLink({
-            url: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
-            //'/api/trpc', //config.trpcServerUrl,
+            url: '/api/trpc',
         }),
     ],
 });

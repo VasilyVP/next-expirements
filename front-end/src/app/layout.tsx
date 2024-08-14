@@ -1,3 +1,4 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import StoreProvider from "@/store/StoreProvider";
 import TrpcProvider from "@/trpc/TrpcProvider";
@@ -20,13 +21,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StoreProvider>
-          <ThemeRegistry>
-            <TrpcProvider>
-              {children}
-            </TrpcProvider>
-          </ThemeRegistry>
-        </StoreProvider>
+        <AppRouterCacheProvider>
+          <StoreProvider>
+            <ThemeRegistry>
+              <TrpcProvider>
+                {children}
+              </TrpcProvider>
+            </ThemeRegistry>
+          </StoreProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   )

@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-type User = {
-    name: string;
-}
-
 export default function middleware(request: NextRequest) {
     const user = {
         name: 'John Doe',
