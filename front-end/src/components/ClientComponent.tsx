@@ -4,11 +4,11 @@ import { Box } from "@mui/material";
 
 
 export default function ClientComponent() {
-    const { data: users /* , error */  } = trpcClc.public.userList.useQuery(undefined, {
+    const { data: users /* , error */  } = trpcClc.userList.useQuery(undefined, {
         refetchOnMount: false,
     });
 
-    const { data: me, error } = trpcClc.auth.me.useQuery();
+    const { data: me, error } = trpcClc.me.useQuery();
 
     console.log("me: ", me);
     console.log("error: ", error);
