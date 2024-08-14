@@ -4,9 +4,9 @@ import { Box } from "@mui/material";
 
 
 export default function ClientComponent() {
-    const { data: users /* , error  */ } = trpcClc.public.userList.useQuery(undefined, {
+    /* const { data: users , error  } = trpcClc.public.userList.useQuery(undefined, {
         refetchOnMount: false,
-    });
+    }); */
 
     const { data: me, error } = trpcClc.authed.me.useQuery();
 
@@ -16,7 +16,7 @@ export default function ClientComponent() {
 
     return (
         <Box>
-            Client component: {users?.[1].email}
+            Client component: {/* {users?.[1].email} */}
         </Box>
     )
 }
