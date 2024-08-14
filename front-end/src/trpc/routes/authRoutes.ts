@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { trpc } from '../init';
 
 
-export const authProcedure = trpc.procedure.use(async ({ ctx, next }) => {
+const authMiddleware = trpc.middleware(async ({ ctx, next }) => {
     if (!ctx.user) throw new TRPCError({ code: 'UNAUTHORIZED' });
 
     return next({
@@ -13,7 +13,9 @@ export const authProcedure = trpc.procedure.use(async ({ ctx, next }) => {
     })
 });
 
-export const authRoutes = {
+export const authProcedure = trpc.procedure.use(authMiddleware);
+
+export const authRoutes = trpc.router({
     me: authProcedure
         .output(z.object({
             email: z.string().email().max(20),
@@ -22,4 +24,4 @@ export const authRoutes = {
 
             return user;
         }),
-};
+});

@@ -26,7 +26,7 @@ export default async function Home() {
           <MoreShared />
         </Box>
         <Box>
-          <Shared />
+          <Shared prop='something' />
         </Box>
         <ServerComponent />
         <ClientComponent />

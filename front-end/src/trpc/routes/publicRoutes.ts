@@ -6,7 +6,7 @@ import { trpc } from '../init';
 
 const procedure = trpc.procedure;
 
-export const publicRoutes = {
+export const publicRoutes = trpc.router({
     userList: procedure
         .query(async () => {
             return Users;
@@ -34,4 +34,4 @@ export const publicRoutes = {
 
             return user;
         }),
-};
+});
