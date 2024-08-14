@@ -9,6 +9,10 @@ export const metadata = {
   description: 'This is a test app',
 }
 
+console.log('CI: ', process.env.CI);
+
+export const dynamic = 'force-dynamic';// process.env.CI ? 'force-dynamic' : 'auto';
+
 export default async function RootLayout({
   children,
 }: {
