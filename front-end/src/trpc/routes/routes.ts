@@ -2,8 +2,8 @@ import { authRoutes } from "./authRoutes";
 import { publicRoutes } from "./publicRoutes";
 
 const routes = {
-    ...publicRoutes,
-    ...authRoutes,
+    publicRoutes,
+    authRoutes,
 };
 
 export default routes;
