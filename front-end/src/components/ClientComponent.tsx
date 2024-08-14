@@ -8,7 +8,7 @@ export default function ClientComponent() {
         refetchOnMount: false,
     }); */
 
-    const { data: me, error } = trpcClc.authed.me.useQuery();
+    const { data: me, error } = trpcClc.me.useQuery();
 
     console.log("me: ", me);
     console.log("error: ", error);
