@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "start:full": "tsx watch ./src/trpc/server | next dev",
     "lint": "next lint"
