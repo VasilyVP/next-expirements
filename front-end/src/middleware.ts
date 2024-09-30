@@ -8,6 +8,8 @@ export default function middleware(request: NextRequest) {
 
     const response = NextResponse.next();
 
+    console.log('middleware: ', process.env.DATABASE_URL);
+
     response.headers.set('user', JSON.stringify(user));
 
     return response;
