@@ -23,13 +23,13 @@ export default async function Home() {
         </Box>
         <Box><Login /></Box>
         <Box>
-          <MoreShared />
+         {/*  <MoreShared /> */}
         </Box>
         <Box>
           <Shared prop='something' />
         </Box>
         <ServerComponent />
-        <ClientComponent />
+        {/* <ClientComponent /> */}
       </Stack>
     </Box>
   )
