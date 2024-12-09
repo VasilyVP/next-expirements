@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postinstall": "prisma generate && prisma migrate deploy",
+    "postinstall": "prisma generate && prisma migrate deploy && drizzle-kit migrate",
     "start": "next start",
     "start:full": "tsx watch ./src/trpc/server | next dev",
     "lint": "next lint"
