@@ -11,5 +11,5 @@ if (isServer && !process.env.DRIZZLE_DATABASE_URL) {
 
 export const config = {
     trpcServerLocal: process.env.NEXT_PUBLIC_TRPC_SERVER,
-    drizzleDatabaseUrl: process.env.DRIZZLE_DATABASE_URL,
+    drizzleDatabaseUrl: process.env.DRIZZLE_DATABASE_URL!,
 }
