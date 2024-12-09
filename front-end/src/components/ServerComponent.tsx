@@ -8,5 +8,5 @@ export default async function ServerComponent() {
 
     console.log("users: ", users);
 
-    return 'Server component: ' + res[0].email;
+    return 'Server component: ' //+ res[0].email;
 }

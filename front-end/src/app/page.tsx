@@ -6,6 +6,7 @@ import Shared from '@ntp/packages/components/Shared'; // direct import
 import MoreShared from '@/components/MoreShared';
 import ServerComponent from '@/components/ServerComponent';
 import ClientComponent from '@/components/ClientComponent';
+import DrizzleServerComponent from '@/components/DrizzleServerComponent';
 
 
 export default async function Home() {
@@ -30,6 +31,7 @@ export default async function Home() {
         </Box>
         <ServerComponent />
         <ClientComponent />
+        <DrizzleServerComponent />
       </Stack>
     </Box>
   )
