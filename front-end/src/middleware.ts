@@ -1,41 +1,23 @@
-import { NextRequest, NextResponse } from "next/server";
-//import { jwtVerify } from 'jose';
+import { NextResponse } from 'next/server'
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
+export default clerkMiddleware(async (auth, req) => {
+    const session = await auth();
 
-export default async function middleware(request: NextRequest) {
-    /* const token = request.cookies.get('token')?.value;
-
-    if (!token) {
-        console.log('no jwt token');
-        const response = NextResponse.json({ success: true });
-
-        const tokenToSet = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.psX8I8qIXCnpUawqHvnMnkPHISq5ipqpkPPtmmdyOMk';
-
-        response.cookies.set('token', tokenToSet, { httpOnly: true, secure: true });
-        return response;
-    } */
-
-    const user = {
-        name: 'John Doe',
-        role: 'admin',
-    };
-
-    /* if (token) {
-        try {
-            console.log('token: ', token);
-            
-            const secret = new TextEncoder().encode('test-secret-key');
-            const { payload } = await jwtVerify(token, secret);
-
-            console.log('payload: ', payload);
-        } catch (err) {
-            return new Response('Invalid Token', { status: 401 });
+    if (!session.userId) {
+        if (req.nextUrl.pathname !== '/') {
+            return NextResponse.redirect(req.nextUrl.origin);
         }
-    } */
+    } else if (req.nextUrl.pathname === '/') {
+        return NextResponse.redirect(req.nextUrl.origin + '/page1');
+    }
+});
 
-    const response = NextResponse.next();
-
-    response.headers.set('user', JSON.stringify(user));
-
-    return response;
-}
+export const config = {
+    matcher: [
+        // Skip Next.js internals and all static files, unless found in search params
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        // Always run for API routes
+        '/(api|trpc)(.*)',
+    ],
+};
