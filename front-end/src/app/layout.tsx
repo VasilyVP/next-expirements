@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import StoreProvider from "@/store/StoreProvider";
@@ -17,18 +18,20 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <StoreProvider>
-            <ThemeRegistry>
-              <TrpcProvider>
-                {children}
-              </TrpcProvider>
-            </ThemeRegistry>
-          </StoreProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <AppRouterCacheProvider>
+            <StoreProvider>
+              <ThemeRegistry>
+                <TrpcProvider>
+                  {children}
+                </TrpcProvider>
+              </ThemeRegistry>
+            </StoreProvider>
+          </AppRouterCacheProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

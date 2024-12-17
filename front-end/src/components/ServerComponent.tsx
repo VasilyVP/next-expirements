@@ -1,8 +1,8 @@
-import { trpcSsr } from "@/trpc/client";
+//import { trpcSsr } from "@/trpc/client";
 import prisma from "prisma/client";
 
 export default async function ServerComponent() {
-    const res = await trpcSsr.userList.query();
+    //const res = await trpcSsr.userList.query();
 
     const users = await prisma.user.findMany();
 
